@@ -1,6 +1,6 @@
 # **CSI606-2021-02 - Remoto - Proposta de Trabalho Final**
 
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
+## *Aluna(o): Rafael Nepomuceno Siqueira Campos
 
 --------------
 
@@ -8,28 +8,27 @@
 
 ### Resumo
 
-  (Apresentar um breve resumo sobre o seu trabalho, indicando o contexto e as principais funcionalidades.)
+  O sistema a ser desenvolvido será projetado para um ambiente de manutenção de automóveis. Nele o usuário será capaz de cadastrar clientes e seus automóveis, assim como descrever notas sobre possíveis problemas identificados. Também poderá ser cadastrado novas peças para manutenção e registro das revisões e futuras.
 
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de ...
+  _Controle de Revisão de Veículos_
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
 
-  Este projeto terá as seguintes funcionalidades...
+  - Cadastro de cliente;
+  - Cadastro de veículo;
+  - Descrever problemas do veículo;
+  - Registro de peças novas para o veículo;
+  - Registro de revisão e agendamento para a próxima.
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
-  Neste trabalho não serão considerados ...
+  - Não há mascaras para os inputs;
+  - Não há tratamento de dados em alguns inputs caso estes sejam inseridos no formato errado ou de forma errada.
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
-
-  Protótipos para as páginas (descrever quais páginas) foram elaborados, e podem ser encontrados em...
-
-### 5. Referências
-
-  Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
