@@ -11,4 +11,12 @@
 
 ## [Projeto final:](./Projeto/README.md)
 
-Apresente uma breve descrição do seu projeto.
+**Definição de tema**:
+_Controle de Revisão de Veículos_. O sistema a ser desenvolvido será projetado para um ambiente de manutenção de automóveis. Nele o usuário será capaz de cadastrar clientes e seus automóveis, assim como descrever notas sobre possíveis problemas identificados. Também poderá ser cadastrado novas peças para manutenção e registro das revisões e futuras.
+
+**Possíveis Funcionalidades**:
+- Cadastro de cliente;
+- Cadastro de veículo;
+- Descrever problemas do veículo;
+- Registro de peças novas para o veículo;
+- Registro de revisão e agendamento para a próxima.
