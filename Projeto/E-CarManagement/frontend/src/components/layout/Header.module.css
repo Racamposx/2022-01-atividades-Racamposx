@@ -1,0 +1,26 @@
+.list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-top: 0;
+}
+
+.item{
+    margin-right: 1em;
+}
+
+.item a:hover{
+    color: #898dbb;
+}
+
+.header{
+    background-color: #404258;
+    padding: 2em;
+}
+
+a{
+    font-family: 'Oswald', sans-serif;
+    color: #EAEAEA;
+}
+

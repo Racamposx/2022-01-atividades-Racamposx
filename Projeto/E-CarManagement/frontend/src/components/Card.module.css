@@ -1,0 +1,12 @@
+.box{
+    width: 20%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border: #404258 solid;
+    font-family: 'Oswald', sans-serif;
+    color: #EAEAEA;
+    border-radius: 30px;
+    margin: 7em auto;
+}

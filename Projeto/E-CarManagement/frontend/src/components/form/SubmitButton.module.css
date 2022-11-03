@@ -1,0 +1,13 @@
+.btn{
+    background-color: #404258;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    padding: 0.7em 1.2em;
+    text-decoration: none;
+    border-color: #4c4f69;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    color: #5f6183;
+}

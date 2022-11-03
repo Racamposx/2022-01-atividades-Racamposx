@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model agendamento {
+  agendamentoId Int      @id @default(autoincrement())
+  data          DateTime @db.Timestamp(0)
+  carroId       Int
+  clienteId     Int
+  carro         carro    @relation(fields: [carroId], references: [idcarro], onDelete: NoAction, onUpdate: NoAction, map: "carro_Id")
+  cliente       cliente  @relation(fields: [clienteId], references: [idCliente], onDelete: NoAction, onUpdate: NoAction, map: "cliente_Id")
+
+  @@index([carroId], map: "idCarro_idx")
+  @@index([clienteId], map: "idCliente_idx")
+}
+
+model carro {
+  idcarro     Int           @id @default(autoincrement())
+  clienteId   Int
+  modelo      String        @db.VarChar(45)
+  marca       String        @db.VarChar(45)
+  cliente     cliente       @relation(fields: [clienteId], references: [idCliente], onDelete: NoAction, onUpdate: NoAction, map: "clienteId")
+  agendamento agendamento[]
+  manutencao  manutencao[]
+
+  @@index([clienteId], map: "clienteId_idx")
+}
+
+model cliente {
+  idCliente                             Int           @id @default(autoincrement())
+  nome                                  String        @db.VarChar(30)
+  sobrenome                             String        @db.VarChar(150)
+  enderecoId                            Int
+  cpf                                   String        @db.Char(15)
+  endereco_cliente_enderecoIdToendereco endereco      @relation("cliente_enderecoIdToendereco", fields: [enderecoId], references: [enderecoId], onDelete: NoAction, onUpdate: NoAction, map: "enderecoId")
+  agendamento                           agendamento[]
+  carro                                 carro[]
+  endereco_clienteToendereco_clienteId  endereco[]    @relation("clienteToendereco_clienteId")
+  manutencao                            manutencao[]
+
+  @@index([enderecoId], map: "enderecoId_idx")
+}
+
+model endereco {
+  enderecoId                           Int       @id @default(autoincrement())
+  rua                                  String    @db.VarChar(45)
+  numero                               String    @db.VarChar(5)
+  complemento                          String?   @db.VarChar(45)
+  cep                                  String    @db.VarChar(9)
+  cidade                               String    @db.VarChar(45)
+  clienteId                            Int
+  cliente_clienteToendereco_clienteId  cliente   @relation("clienteToendereco_clienteId", fields: [clienteId], references: [idCliente], onDelete: NoAction, onUpdate: NoAction, map: "clienteId_end")
+  cliente_cliente_enderecoIdToendereco cliente[] @relation("cliente_enderecoIdToendereco")
+
+  @@index([clienteId], map: "clienteId_end_idx")
+}
+
+model manutencao {
+  manutencaoId  Int      @id @default(autoincrement())
+  descricao     String   @db.VarChar(200)
+  dataRealizada DateTime @db.Timestamp(0)
+  carroId       Int
+  clienteId     Int
+  carro         carro    @relation(fields: [carroId], references: [idcarro], onDelete: NoAction, onUpdate: NoAction, map: "idCarro")
+  cliente       cliente  @relation(fields: [clienteId], references: [idCliente], onDelete: NoAction, onUpdate: NoAction, map: "idCliente")
+
+  @@index([carroId], map: "carroId_idx")
+  @@index([clienteId], map: "clienteId_idx")
+}
