@@ -1,4 +1,4 @@
-.cliente_form{
+.agendamento_form{
     margin: auto;
     font-family: 'Oswald', sans-serif;
     background-color: #404258 ;
@@ -9,7 +9,7 @@
     font-weight: 400;
 }
 
-.cliente_form h3{
+.agendamento_form h3{
     width: 100%;
     text-align: center;
     margin-top: 1.5em;

@@ -1,0 +1,10 @@
+.container_error{
+    margin: 6em auto;
+    width: 30%;
+    border: 3px solid #181922;
+    background-color: #372948;
+    color: white;
+    padding: 2em;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}

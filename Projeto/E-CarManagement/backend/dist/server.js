@@ -28,10 +28,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv = __importStar(require("dotenv"));
+const cliente_1 = __importDefault(require("./routes/cliente"));
+const agendamento_1 = __importDefault(require("./routes/agendamento"));
+const manutencao_1 = __importDefault(require("./routes/manutencao"));
+const carro_1 = __importDefault(require("./routes/carro"));
 dotenv.config();
 const app = (0, express_1.default)();
+const cors = require("cors");
+app.use(cors({
+    methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+    optionsSuccessStatus: 200,
+    origin: '*'
+}));
+app.options('*', cors());
 const PORT = process.env.PORT || 5555;
 app.use(express_1.default.json());
+app.use(cliente_1.default);
+app.use(carro_1.default);
+app.use(agendamento_1.default);
+app.use(manutencao_1.default);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

@@ -1,23 +1,42 @@
-import styles from "./ClienteFormEdit.css";
+import styles from "./CarroForm.module.css";
 import Input from "../../form/Input";
 import SubmitButton from "../../form/SubmitButton";
+import Select from "../../form/Select";
+import { useEffect, useState } from 'react';
 
 export default function(){
+    const [clientes, setClientes] = useState([]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/cliente/list');
+                const json = await response.json();
+                setClientes(json)
+            } catch (error) {
+                console.log("error", error);
+            }
+        };
+                                                 
+    }, []);
+
+
     return (
-        <form>
-            <h3>Dados do Cliente</h3>
+        <form className={styles.carro_form}>
+            <h3>Dados dos veículos</h3>
             <Input
                 type="text"
-                text="Nome"
-                name="nome"
-                placeholder="Insira o Nome"
+                text="Modelo"
+                name="modelo"
+                placeholder="Insira o modelo"
             />
 
             <Input
                 type="text"
-                text="Sobrenome"
-                name="sobrenome"
-                placeholder="Insira o Sobrenome"
+                text="Marca"
+                name="marca"
+                placeholder="Insira a marca"
             />
 
             <Input
@@ -27,41 +46,6 @@ export default function(){
                 placeholder="Insira o CPF"
             />
 
-            <h3>Endereço do Cliente</h3>
-            <Input
-                type="text"
-                text="Rua"
-                name="rua"
-                placeholder="Insira a Rua"
-            />
-            
-            <Input
-                type="text"
-                text="Número"
-                name="numero"
-                placeholder="Insira o Número"
-            />
-
-            <Input
-                type="text"
-                text="Complemento"
-                name="complemento"
-                placeholder="Insira o Complemento"
-            />
-
-            <Input
-                type="text"
-                text="CEP"
-                name="cep"
-                placeholder="Insira o CEP"
-            />
-
-            <Input
-                type="text"
-                text="Cidade"
-                name="cidade"
-                placeholder="Insira a Cidade"
-            />
             <SubmitButton text={"Cadastrar cliente"}/>
         </form>
     )
