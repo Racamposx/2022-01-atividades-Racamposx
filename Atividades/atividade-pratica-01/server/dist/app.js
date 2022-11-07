@@ -1,0 +1,30 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cidade_1 = __importDefault(require("./routes/cidade"));
+const distribuicao_1 = __importDefault(require("./routes/distribuicao"));
+const doacao_1 = __importDefault(require("./routes/doacao"));
+const estado_1 = __importDefault(require("./routes/estado"));
+const localColeta_1 = __importDefault(require("./routes/localColeta"));
+const pessoa_1 = __importDefault(require("./routes/pessoa"));
+const produto_1 = __importDefault(require("./routes/produto"));
+const tipoSanguineo_1 = __importDefault(require("./routes/tipoSanguineo"));
+const unidade_1 = __importDefault(require("./routes/unidade"));
+const app = (0, express_1.default)();
+const PORT = 3000;
+app.use(express_1.default.json());
+app.use(estado_1.default);
+app.use(cidade_1.default);
+app.use(unidade_1.default);
+app.use(tipoSanguineo_1.default);
+app.use(localColeta_1.default);
+app.use(pessoa_1.default);
+app.use(doacao_1.default);
+app.use(produto_1.default);
+app.use(distribuicao_1.default);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
