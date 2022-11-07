@@ -4,7 +4,7 @@ exports.GetByIdManutencaoController = void 0;
 const client_1 = require("../../db/client");
 class GetByIdManutencaoController {
     async handle(req, res) {
-        const { id } = req.body;
+        const { id } = req.params;
         const manutencao = await client_1.prismaClient.manutencao.findUnique({
             where: {
                 manutencaoId: Number(id)
@@ -13,8 +13,19 @@ class GetByIdManutencaoController {
                 manutencaoId: true,
                 dataRealizada: true,
                 descricao: true,
-                idCarro: true,
-                idCliente: true
+                carro: {
+                    select: {
+                        modelo: true,
+                        marca: true
+                    }
+                },
+                cliente: {
+                    select: {
+                        nome: true,
+                        sobrenome: true,
+                        cpf: true
+                    }
+                }
             }
         });
         return res.json(manutencao);

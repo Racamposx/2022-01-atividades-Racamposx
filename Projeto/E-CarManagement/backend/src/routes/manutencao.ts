@@ -8,9 +8,9 @@ import { UpdateManutencaoController } from "../controller/manutencao/UpdateManut
 
 const manutencaoRouter = Router();
 const createManutencaoController = new CreateManutencaoController();
-const getAllManutencaoController = new DeleteManutencaoController();
-const getByIdManutencaoController = new GetAllManutencaoController();
-const deleteManutencaoController = new GetByIdManutencaoController();
+const getAllManutencaoController = new GetAllManutencaoController();
+const getByIdManutencaoController = new GetByIdManutencaoController();
+const deleteManutencaoController = new DeleteManutencaoController();
 const updateManutencaoController = new UpdateManutencaoController();
 
 manutencaoRouter.post('/manutencao/create', createManutencaoController.handle);

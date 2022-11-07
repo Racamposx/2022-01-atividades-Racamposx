@@ -4,12 +4,13 @@ exports.CreateCarroController = void 0;
 const client_1 = require("../../db/client");
 class CreateCarroController {
     async handle(req, res) {
-        const { modelo, marca, id } = req.body;
+        const { modelo, marca, placa, id } = req.body;
         try {
             const carro = await client_1.prismaClient.carro.create({
                 data: {
-                    modelo,
-                    marca,
+                    modelo: modelo,
+                    marca: marca,
+                    placa: placa,
                     cliente: {
                         connect: {
                             clienteId: Number(id)

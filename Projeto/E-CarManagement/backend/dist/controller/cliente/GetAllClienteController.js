@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetAllCLienteController = void 0;
+exports.GetAllClienteController = void 0;
 const client_1 = require("../../db/client");
-class GetAllCLienteController {
+class GetAllClienteController {
     async handle(req, res) {
-        const { id } = req.body;
         const clientes = await client_1.prismaClient.cliente.findMany({
             select: {
                 clienteId: true,
@@ -26,4 +25,4 @@ class GetAllCLienteController {
         return res.json(clientes);
     }
 }
-exports.GetAllCLienteController = GetAllCLienteController;
+exports.GetAllClienteController = GetAllClienteController;

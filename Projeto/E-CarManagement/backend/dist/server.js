@@ -32,15 +32,15 @@ const cliente_1 = __importDefault(require("./routes/cliente"));
 const agendamento_1 = __importDefault(require("./routes/agendamento"));
 const manutencao_1 = __importDefault(require("./routes/manutencao"));
 const carro_1 = __importDefault(require("./routes/carro"));
+const cors = require("cors");
 dotenv.config();
 const app = (0, express_1.default)();
-const cors = require("cors");
 app.use(cors({
-    methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+    methods: ['GET,POST,PATCH,DELETE,OPTIONS'],
     optionsSuccessStatus: 200,
     origin: '*'
 }));
-app.options('*', cors());
+app.options('*', cors);
 const PORT = process.env.PORT || 5555;
 app.use(express_1.default.json());
 app.use(cliente_1.default);

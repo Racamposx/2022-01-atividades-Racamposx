@@ -11,7 +11,15 @@ export class GetAllCarroController{
                     carroId: true,
                     idCliente: true,
                     modelo: true,
-                    marca: true
+                    marca: true,
+                    placa: true,
+                    cliente: {
+                        select: {
+                            nome: true,
+                            sobrenome: true,
+                            cpf: true
+                    }
+                }
                 }
             });
             return res.status(201).json(carros);

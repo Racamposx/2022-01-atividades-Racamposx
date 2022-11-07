@@ -10,7 +10,7 @@ export class UpdateManutencaoController {
         idCliente
     } = req.body;
 
-    const id = req.params;
+    const {id} = req.params;
 
     try {
         const manutencaoFind = await prismaClient.manutencao.findUnique({
@@ -26,9 +26,7 @@ export class UpdateManutencaoController {
                 },
                 data: {
                     descricao: descricao,
-                    dataRealizada: dataRealizada,
-                    idCarro: idCarro,
-                    idCliente: idCliente
+                    dataRealizada: new Date(dataRealizada)
                 }
             });
         

@@ -8,9 +8,9 @@ const GetByIdManutencaoController_1 = require("../controller/manutencao/GetByIdM
 const UpdateManutencaoController_1 = require("../controller/manutencao/UpdateManutencaoController");
 const manutencaoRouter = (0, express_1.Router)();
 const createManutencaoController = new CreateManutecaoController_1.CreateManutencaoController();
-const getAllManutencaoController = new DeleteManutencaoController_1.DeleteManutencaoController();
-const getByIdManutencaoController = new GetAllManutencaoController_1.GetAllManutencaoController();
-const deleteManutencaoController = new GetByIdManutencaoController_1.GetByIdManutencaoController();
+const getAllManutencaoController = new GetAllManutencaoController_1.GetAllManutencaoController();
+const getByIdManutencaoController = new GetByIdManutencaoController_1.GetByIdManutencaoController();
+const deleteManutencaoController = new DeleteManutencaoController_1.DeleteManutencaoController();
 const updateManutencaoController = new UpdateManutencaoController_1.UpdateManutencaoController();
 manutencaoRouter.post('/manutencao/create', createManutencaoController.handle);
 manutencaoRouter.get('/manutencao/list', getAllManutencaoController.handle);

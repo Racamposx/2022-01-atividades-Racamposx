@@ -1,9 +1,8 @@
 import { prismaClient } from "../../db/client";
 import { Request, Response } from "express";
 
-export class GetAllCLienteController{
+export class GetAllClienteController{
     async handle(req: Request, res: Response) {
-        const {id} = req.body;
 
         const clientes = await prismaClient.cliente.findMany({
             select: {

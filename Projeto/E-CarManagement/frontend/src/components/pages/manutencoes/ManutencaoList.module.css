@@ -1,0 +1,54 @@
+.styled_table {
+    margin: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    border-collapse: collapse;
+    font-family: 'Oswald', sans-serif;
+}
+
+.styled_table thead tr {
+    background-color: rgb(36, 29, 54);
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled_table th,
+.styled_table td {
+    padding: 12px 15px;
+    border: 1px solid;
+    border-color: black;
+    text-align: center;
+}
+
+.styled_table td {
+    background-color: #3e455c;
+    font-weight: bold;
+}
+
+.styled_h1{
+    text-align: center;
+    color: #1c0d34;
+}
+
+.search_text{
+    display: block;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #1c0d34;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.id_input{
+    text-align: center;
+    display: block;
+    margin: 1em auto;
+}
+
+.search_button{
+    margin: auto;
+    margin-bottom: 1em;
+    display: block;
+}

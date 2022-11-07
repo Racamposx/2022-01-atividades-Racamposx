@@ -14,7 +14,7 @@ export class UpdateClienteController {
         cidade
     } = req.body;
 
-    const id = req.params;
+    const {id} = req.params;
 
     try {
         const clienteFind = await prismaClient.cliente.findUnique({

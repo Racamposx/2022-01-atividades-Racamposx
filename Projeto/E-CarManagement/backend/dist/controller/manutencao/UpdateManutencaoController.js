@@ -5,7 +5,7 @@ const client_1 = require("../../db/client");
 class UpdateManutencaoController {
     async handle(req, res) {
         const { descricao, dataRealizada, idCarro, idCliente } = req.body;
-        const id = req.params;
+        const { id } = req.params;
         try {
             const manutencaoFind = await client_1.prismaClient.manutencao.findUnique({
                 where: {
@@ -19,9 +19,7 @@ class UpdateManutencaoController {
                     },
                     data: {
                         descricao: descricao,
-                        dataRealizada: dataRealizada,
-                        idCarro: idCarro,
-                        idCliente: idCliente
+                        dataRealizada: new Date(dataRealizada)
                     }
                 });
                 return res.json(manutencao);

@@ -5,13 +5,14 @@ import { Request, Response } from "express";
 export class CreateCarroController{
 
     async handle(req: Request, res: Response){
-        const { modelo, marca, id } = req.body;
+        const { modelo, marca, placa, id } = req.body;
 
         try{
             const carro = await prismaClient.carro.create({
                 data: {
-                    modelo,
-                    marca,
+                    modelo: modelo,
+                    marca: marca,
+                    placa: placa,
                     cliente: {
                         connect: {
                             clienteId: Number(id)

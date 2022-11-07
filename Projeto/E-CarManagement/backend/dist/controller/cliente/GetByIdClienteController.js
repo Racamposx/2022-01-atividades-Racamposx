@@ -4,7 +4,7 @@ exports.GetByIdClienteController = void 0;
 const client_1 = require("../../db/client");
 class GetByIdClienteController {
     async handle(req, res) {
-        const { id } = req.body;
+        const { id } = req.params;
         const cliente = await client_1.prismaClient.cliente.findUnique({
             where: {
                 clienteId: Number(id)

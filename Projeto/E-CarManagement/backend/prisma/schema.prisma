@@ -9,7 +9,7 @@ datasource db {
 
 model agendamento {
   agendamentoId Int      @id @default(autoincrement())
-  data          DateTime @db.Timestamp(0)
+  date          DateTime @db.Timestamp(0)
   idCarro       Int
   idCliente     Int
   carro         carro    @relation(fields: [idCarro], references: [carroId], onDelete: NoAction, onUpdate: NoAction, map: "carro_Id")
@@ -23,6 +23,7 @@ model carro {
   carroId     Int           @id @default(autoincrement())
   modelo      String        @db.VarChar(45)
   marca       String        @db.VarChar(45)
+  placa       String        @unique @db.VarChar(8)
   idCliente   Int
   cliente     cliente       @relation(fields: [idCliente], references: [clienteId], onDelete: NoAction, onUpdate: NoAction, map: "cliente_car_refer")
   agendamento agendamento[]

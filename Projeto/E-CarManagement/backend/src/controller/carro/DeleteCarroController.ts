@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 
 export class DeleteCarroController{
     async handle(req: Request, res: Response) {
-        const {id} = req.body;
+        const {id} = req.params;
 
         const carro = await prismaClient.carro.delete({
             where: {

@@ -3,8 +3,9 @@ import { Request, Response } from "express";
 
 export class DeleteAgendamentoController{
     async handle(req: Request, res: Response) {
-        const {id} = req.body;
+        const {id} = req.params;
 
+    try{    
         const agendamento = await prismaClient.agendamento.delete({
             where: {
                 agendamentoId: Number(id)
@@ -12,5 +13,9 @@ export class DeleteAgendamentoController{
         });
 
         return res.json(agendamento);
+    }
+    catch(error){
+        return res.status(400).json(error);
+    }
     }
 }

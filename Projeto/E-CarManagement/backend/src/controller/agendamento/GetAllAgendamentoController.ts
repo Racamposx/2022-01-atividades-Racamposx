@@ -9,9 +9,20 @@ export class GetAllAgendamentoController{
             const agendamentos = await prismaClient.agendamento.findMany({
                 select: {
                     agendamentoId: true,
-                    data: true,
-                    idCliente: true,
-                    idCarro: true
+                    date: true,
+                    carro: {
+                        select: {
+                            modelo: true,
+                            marca: true
+                        },
+                    },
+                    cliente: {
+                        select: {
+                            nome: true,
+                            sobrenome: true,
+                            cpf: true
+                        },
+                    },
                 }
             });
             return res.status(201).json(agendamentos);

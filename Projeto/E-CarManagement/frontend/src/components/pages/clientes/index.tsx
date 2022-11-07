@@ -1,5 +1,4 @@
 import {Routes, Route, Outlet} from "react-router-dom";
-import styles from "./Cliente.module.css";
 import ClienteForm from "./ClienteForm";
 import ClienteList from "./ClienteList";
 import Card from "../../Card";

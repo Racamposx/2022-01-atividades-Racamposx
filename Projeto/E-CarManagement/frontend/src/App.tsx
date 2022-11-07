@@ -11,6 +11,7 @@ import CarroForm from "./components/pages/carros/CarroForm";
 import CarroList from "./components/pages/carros/CarroList";
 import Clientes from "./components/pages/clientes";
 import ClienteForm from "./components/pages/clientes/ClienteForm";
+import ClienteEdit from "./components/pages/clientes/ClienteEdit";
 import ClienteList from "./components/pages/clientes/ClienteList";
 import Agendamentos from "./components/pages/agendamentos";
 import AgendamentoForm from "./components/pages/agendamentos/AgendamentoForm";
@@ -34,7 +35,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/cliente/" element={<Clientes/>}/>
             <Route path="/cliente/create" element={<ClienteForm/>}/>
-            <Route path="/cliente/update/:id" element={<ClienteForm/>}/>
+            <Route path="/cliente/update/:id" element={<ClienteEdit/>}/>
             <Route path="/cliente/list" element={<ClienteList/>}/>
 
             <Route path="/carro" element={<Carros/>}/>

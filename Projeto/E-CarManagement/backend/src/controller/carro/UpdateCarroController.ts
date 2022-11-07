@@ -4,10 +4,10 @@ import { prismaClient } from "../../db/client";
 export class UpdateCarroController {
     async handle(req: Request, res: Response) {
     const {
-        modelo, marca
+        modelo, marca, placa
     } = req.body;
 
-    const id = req.params;
+    const {id} = req.params;
 
     try {
         const carroFind = await prismaClient.carro.findUnique({
@@ -23,8 +23,9 @@ export class UpdateCarroController {
                     carroId: Number(id)
                 },
                 data: {
-                    modelo,
-                    marca
+                    modelo: modelo,
+                    marca: marca,
+                    placa: placa
                 }
             });
             

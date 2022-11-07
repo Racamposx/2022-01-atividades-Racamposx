@@ -4,7 +4,7 @@ import SubmitButton from "../../form/SubmitButton";
 
 import { useState } from "react";
 import api from "../../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function(){
     const [ nome, setNome ] = useState('');
@@ -16,8 +16,9 @@ export default function(){
     const [ cep, setCep ] = useState('');
     const [ cidade, setCidade] = useState('');
     const navigate = useNavigate();
+    const {id} = useParams();
     
-    const createCliente = async (e: React.FormEvent<HTMLFormElement>) =>{
+    const updateCliente = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         
         const data = {
@@ -32,10 +33,11 @@ export default function(){
         }
 
         try{
-            await api.post('/cliente/create', data);
-            alert("Cadastrado com sucesso!");
+            
+            console.log({id})
+            await api.put(`/cliente/${id}`, data);
+            alert("Atualizado com sucesso!");
             navigate("/cliente/list");
-
         }
         catch(error){
             console.log(error);
@@ -82,8 +84,8 @@ export default function(){
 
     return (
         
-        <form onSubmit={createCliente} className={styles.cliente_form}>
-            <h3 className={styles.cliente_form}>Dados do Cliente</h3>
+        <form onSubmit={updateCliente} className={styles.cliente_form}>
+            <h3 className={styles.cliente_form}>Edição dados do Cliente</h3>
             <Input
                 handleOnChange={handleChangeName}
                 type="text"
@@ -156,7 +158,7 @@ export default function(){
                 value={cidade}
                 placeholder="Insira a Cidade"
             />
-            <SubmitButton text={"Cadastrar cliente"}/>
+            <SubmitButton text={"Atualizar cliente"}/>
         </form>
     )
 }

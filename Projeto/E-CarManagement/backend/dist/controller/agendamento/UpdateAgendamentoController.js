@@ -12,7 +12,7 @@ class UpdateAgendamentoController {
                     agendamentoId: Number(id)
                 },
                 data: {
-                    data: date
+                    date: new Date(date)
                 }
             });
             return res.status(201).json(agendamento);

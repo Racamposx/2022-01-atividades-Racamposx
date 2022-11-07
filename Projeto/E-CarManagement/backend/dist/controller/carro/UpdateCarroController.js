@@ -4,8 +4,8 @@ exports.UpdateCarroController = void 0;
 const client_1 = require("../../db/client");
 class UpdateCarroController {
     async handle(req, res) {
-        const { modelo, marca } = req.body;
-        const id = req.params;
+        const { modelo, marca, placa } = req.body;
+        const { id } = req.params;
         try {
             const carroFind = await client_1.prismaClient.carro.findUnique({
                 where: {
@@ -19,8 +19,9 @@ class UpdateCarroController {
                         carroId: Number(id)
                     },
                     data: {
-                        modelo,
-                        marca
+                        modelo: modelo,
+                        marca: marca,
+                        placa: placa
                     }
                 });
                 return res.json(carro);

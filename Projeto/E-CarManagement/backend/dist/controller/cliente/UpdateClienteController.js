@@ -5,7 +5,7 @@ const client_1 = require("../../db/client");
 class UpdateClienteController {
     async handle(req, res) {
         const { nome, sobrenome, cpf, rua, numero, complemento, cep, cidade } = req.body;
-        const id = req.params;
+        const { id } = req.params;
         try {
             const clienteFind = await client_1.prismaClient.cliente.findUnique({
                 where: {

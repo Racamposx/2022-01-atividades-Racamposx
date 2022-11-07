@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 
 export class GetByIdManutencaoController{
     async handle(req: Request, res: Response) {
-        const {id} = req.body;
+        const {id} = req.params;
 
         const manutencao = await prismaClient.manutencao.findUnique({
             where: {
@@ -13,8 +13,19 @@ export class GetByIdManutencaoController{
                 manutencaoId: true,
                 dataRealizada: true,
                 descricao: true,
-                idCarro: true,
-                idCliente: true
+                carro: {
+                    select: {
+                        modelo: true,
+                        marca: true
+                    }
+                },
+                cliente: {
+                    select: {
+                        nome: true,
+                        sobrenome: true,
+                        cpf: true
+                    }
+                }
             }
         });
 

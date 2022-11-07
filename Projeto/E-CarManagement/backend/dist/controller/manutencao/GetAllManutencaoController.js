@@ -9,8 +9,19 @@ class GetAllManutencaoController {
                 manutencaoId: true,
                 dataRealizada: true,
                 descricao: true,
-                idCarro: true,
-                idCliente: true
+                carro: {
+                    select: {
+                        modelo: true,
+                        marca: true
+                    }
+                },
+                cliente: {
+                    select: {
+                        nome: true,
+                        sobrenome: true,
+                        cpf: true
+                    }
+                }
             }
         });
         return res.json(manutencoes);

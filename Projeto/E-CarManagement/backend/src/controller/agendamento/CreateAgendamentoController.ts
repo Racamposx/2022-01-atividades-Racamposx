@@ -10,11 +10,20 @@ export class CreateAgendamentoController{
         try{
             const agendamento = await prismaClient.agendamento.create({
                 data: {
-                    data: date,
-                    idCarro: Number(idCarro),
-                    idCliente: Number(idCliente)             
-                }
+                    date: new Date(date),
+                    carro: {
+                        connect: {
+                            carroId: Number(idCarro)
+                        }
+                    },
+                    cliente: {
+                        connect: {
+                            clienteId: Number(idCliente)
+                        }
+                    }           
+                }            
             });
+            
             return res.status(201).json(agendamento);
         }        
         catch(error){

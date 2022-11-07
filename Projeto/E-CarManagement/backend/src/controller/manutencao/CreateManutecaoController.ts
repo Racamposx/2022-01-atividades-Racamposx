@@ -15,10 +15,18 @@ export class CreateManutencaoController{
         try{
             const manutencao = await prismaClient.manutencao.create({
                 data: {
-                    descricao,
-                    dataRealizada,
-                    idCarro,
-                    idCliente
+                    descricao: descricao,
+                    dataRealizada: new Date(dataRealizada),
+                    carro: {
+                        connect: {
+                            carroId: Number(idCarro)
+                        }
+                    },
+                    cliente: {
+                        connect: {
+                            clienteId: Number(idCliente)
+                        }
+                    }
                 }
             });
 
@@ -26,7 +34,7 @@ export class CreateManutencaoController{
         }        
         catch(error){
             return res.status(400).json({
-                message: 'unexpected error =('
+                message: {error: error}
             })
         }
 
